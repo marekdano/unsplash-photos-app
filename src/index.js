@@ -1,13 +1,16 @@
-import React from 'react';
+// Libs
 import ReactDOM from 'react-dom';
-import App from './app/App';
 
+// Dependencies
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 import 'font-awesome/css/font-awesome.css'
 import './index.css';
 
+// Routes
+import routes from './app-router';
+
 ReactDOM.render(
-  <App />,
+  routes, 
   document.getElementById('root')
 );

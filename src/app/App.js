@@ -1,22 +1,50 @@
-// @flow
-import React, { Component } from 'react';
-import logo from '../logo.svg';
-import './App.css';
 
+import React, { Component } from 'react';
+import './App.css';
+import NavbarLink from './components/shared/NavbarLink';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+      <div className="container">
+        <header>
+          <nav className="navbar navbar-default">
+            <div className="container-fluid">
+              <div className="navbar-header">
+                <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                  <span className="sr-only">Toggle navigation</span>
+                  <span className="icon-bar"></span>
+                  <span className="icon-bar"></span>
+                  <span className="icon-bar"></span>
+                </button>
+                <a className="navbar-brand" href="#">Brand</a>
+              </div>
+
+              <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul className="nav navbar-nav">
+                  <li><NavbarLink to="/">Home</NavbarLink></li>
+                  <li><NavbarLink to="/photos">Photos</NavbarLink></li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </header>
+        <div>
+          { this.props.children }
+        </div>
+      </div>
+
+      /*<div className="app">
+        <div className="app-header">
+          <img src={logo} className="app-logo" alt="logo" />
           <h2>Welcome to React</h2>
         </div>
-        <p className="App-intro">
+        <p className="app-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <i className="fa fa-2x fa-meetup" aria-hidden="true"></i>
-      </div>
+        <PhotosPage/>
+      </div>*/
     );
   }
 }
