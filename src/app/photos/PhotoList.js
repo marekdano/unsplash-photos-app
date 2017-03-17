@@ -9,7 +9,7 @@ const PhotoList = (props) => {
           <div key={photo.id}>
             <NavLink exact to={`/photos/${photo.id}`}>
               <h2 className="username">{photo.user.name}</h2>
-              <img src={photo.urls.thumb} role="presentation"/>
+              <img src={photo.urls.thumb} alt={`by ${photo.user.name}`}/>
             </NavLink>
           </div>
         )
