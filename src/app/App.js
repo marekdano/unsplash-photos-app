@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import './App.css';
-import NavbarLink from './components/shared/NavbarLink';
+import NavbarLink from './shared/NavbarLink';
 
 class App extends Component {
   render() {
@@ -17,12 +17,11 @@ class App extends Component {
                   <span className="icon-bar"></span>
                   <span className="icon-bar"></span>
                 </button>
-                <a className="navbar-brand" href="#">Brand</a>
+                <a href="/" className="navbar-brand"><i className="fa fa-1x fa-camera" aria-hidden="true"></i></a>
               </div>
 
               <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul className="nav navbar-nav">
-                  <li><NavbarLink to="/">Home</NavbarLink></li>
                   <li><NavbarLink to="/photos">Photos</NavbarLink></li>
                 </ul>
               </div>
@@ -42,7 +41,7 @@ class App extends Component {
         <p className="app-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <i className="fa fa-2x fa-meetup" aria-hidden="true"></i>
+        
         <PhotosPage/>
       </div>*/
     );
