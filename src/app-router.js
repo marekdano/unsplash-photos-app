@@ -13,9 +13,9 @@ const routes = (
   <Router>
     <App>
       <Switch>
-        <Route exact path="/" component={Home}></Route>
-        <Route exact path="/photos" component={PhotoIndex}></Route> 
-        <Route exact path="/photos/:id" component={PhotoDetails}></Route> 
+        <Route exact path="/" component={Home} />
+        <Route exact path="/photos" component={PhotoIndex} />
+        <Route exact path="/photos/:id" component={PhotoDetails} />
         {/*<Route path="/users" component={UserIndex}></Route>      */}
         <Route component={NotFoundPage} />
       </Switch>

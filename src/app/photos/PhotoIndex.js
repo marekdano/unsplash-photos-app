@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 
 import PhotoList from './PhotoList';
 import photos from '../../data/photos';
+import './Photos.css';
 
 class PhotoIndex extends Component {
   render() {
     return (
-      <div className="photo-page">
-        <h2>Unsplashed Photos</h2>
+      <div className="photos text-center">
+        <h2>Unsplash Beautiful Photos</h2>
         <PhotoList photos={photos} />
       </div>
     );

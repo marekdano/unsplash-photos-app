@@ -1,15 +1,20 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom'
+import './Photos.css';
 
 const PhotoList = (props) => {
   return (
     <div className="photo-list">
       {props.photos.map(photo => {
         return (
-          <div key={photo.id}>
+          <div className="photo" key={photo.id}>
             <NavLink exact to={`/photos/${photo.id}`}>
-              <h2 className="username">{photo.user.name}</h2>
               <img src={photo.urls.thumb} alt={`by ${photo.user.name}`}/>
+              <h5 className="username"><em>by</em> {photo.user.name} 
+                <img className="img-circle profile-image-thumb" 
+                     src={photo.user.profile_image.small} 
+                     alt={`profile of ${photo.user.name}`} />
+              </h5>
             </NavLink>
           </div>
         )
