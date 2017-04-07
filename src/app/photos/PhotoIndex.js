@@ -10,7 +10,8 @@ class PhotoIndex extends Component {
     super(props);
 
     this.state = {
-      photos: []
+      photos: [],
+      loading: true
     }
   }
 
@@ -26,7 +27,10 @@ class PhotoIndex extends Component {
         }
       })
       .then(response => {
-        this.setState({ photos: response.data });
+        this.setState({ 
+          photos: response.data,
+          loading: false
+        });
       })
       .catch(error => {
         console.log(error)
@@ -34,12 +38,21 @@ class PhotoIndex extends Component {
   };
 
   render() {
-    return (
-      <div className="photos text-center">
-        <h2>Unsplash Beautiful Photos</h2>
-        <PhotoList photos={this.state.photos} />
-      </div>
-    );
+    if (this.state.loading) {
+      return (
+        <div className="icon-loading">
+          <i className="fa fa-camera fa-spin fa-3x fa-fw"></i>
+          <span className="sr-only">Loading...</span>
+        </div> 
+      );
+    } else {
+      return (
+        <div className="photos text-center">
+          <h2>Unsplash Beautiful Photos</h2>
+          <PhotoList photos={this.state.photos} />
+        </div>
+      );
+    }
   }
 }
 
