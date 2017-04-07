@@ -26,7 +26,6 @@ class PhotoIndex extends Component {
         }
       })
       .then(response => {
-        console.log("Latest photos from unsplash: ", response.data);
         this.setState({ photos: response.data });
       })
       .catch(error => {
