@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 
 import PhotoList from './PhotoList';
-import { UNSPLASH_CLIENT_ID } from '../../constants';
+import fetchPhotos from '../services/photo-service';
 import './Photos.css';
 
 class PhotoIndex extends Component {
@@ -20,28 +19,14 @@ class PhotoIndex extends Component {
   }
 
   getPhotos = () => {
-    axios.get('https://api.unsplash.com/photos', {
-        params: {
-          client_id: UNSPLASH_CLIENT_ID,
-          per_page: 100
-        }
-      })
-      .then(response => {
-        this.setState({ 
-          photos: response.data,
-          loading: false
-        });
-      })
-      .catch(error => {
-        console.log(error)
-      });
+    fetchPhotos(this);
   };
 
   render() {
     if (this.state.loading) {
       return (
         <div className="icon-loading">
-          <i className="fa fa-camera fa-spin fa-3x fa-fw"></i>
+          <i className="fa fa-camera fa-spin fa-2x fa-fw"></i>
           <span className="sr-only">Loading...</span>
         </div> 
       );
