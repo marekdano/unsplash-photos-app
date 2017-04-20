@@ -23,6 +23,7 @@ class PhotoIndex extends Component {
   };
 
   render() {
+    console.log(this.state.photos);
     if (this.state.loading) {
       return (
         <div className="icon-loading">
