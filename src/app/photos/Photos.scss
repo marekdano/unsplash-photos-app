@@ -17,6 +17,15 @@
 	margin: 1rem;
 	padding: 0 .7rem;
 
+	.photo-img {
+		padding: .8rem;
+		border: 1px solid white;
+	}
+
+	.photo-img:hover {
+		border: 1px solid grey;
+	}
+
 	.profile-image-thumb {
 		margin-left: 1rem;
 	}

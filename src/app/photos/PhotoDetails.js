@@ -27,12 +27,18 @@ class PhotoDetails extends Component {
       });
   }
 
+  goBack = () => {
+    this.props.history.goBack();
+  }
+
   render() {
     const { photo } = this.state;
     
     if(photo) {
       return (
-        <div className="photo-details">          
+        <div className="photo-details">  
+          <button className="btn btn-default" onClick={this.goBack}> 
+            <i className="fa fa-angle-left" aria-hidden="true"></i> Back</button>        
           <h2 className="username">{photo.user.name}</h2>
           <img src={photo.urls.regular} className="img-responsive" alt={`by ${photo.user.name}`}/>   
         </div>
