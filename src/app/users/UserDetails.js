@@ -39,7 +39,7 @@ class UserDetails extends Component {
         <div>
           <button className="btn btn-default" onClick={this.goBack}> 
             <i className="fa fa-angle-left" aria-hidden="true"></i> Back</button>   
-          <div className="user-details">  
+          <div className="user-details text-center">  
             <img src={user.profile_image.medium} className="img-responsive" alt={`by ${user.name}`}/> 
             <h2 className="username">{user.name}</h2>  
             {user.bio && 

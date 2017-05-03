@@ -1,11 +1,23 @@
 
-.user-profile {
+.users-list {
+	margin: 0 auto;
+	display: flex;
+	flex-flow: row wrap;
+  justify-content: space-around;
 
-	.profile-image-thumb {
-		margin-left: 1rem;
+	.user-profile {
+    margin: 3rem; 
+
+		.profile-image-thumb {
+			margin-left: 1rem;
+		}
 	}
 }
 
 .user-details {
-	margin: 3rem 0;
+	margin: 3rem auto;
+
+	img {
+		margin: 0 auto;	
+	}
 }
