@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { UNSPLASH_CLIENT_ID } from '../../constants';
 
+import { NavLink } from 'react-router-dom';
+
 class UserDetails extends Component {
   constructor(props) {
     super(props);
@@ -50,7 +52,9 @@ class UserDetails extends Component {
             }
             <div>
               <label>Photos:</label>
-              <p>{user.total_photos}</p>
+              <NavLink exact to={`/users/${user.username}/photos`}>
+                <p>{user.total_photos}</p>
+              </NavLink>
             </div>
           </div>
         </div>

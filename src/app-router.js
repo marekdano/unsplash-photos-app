@@ -9,6 +9,7 @@ import PhotoIndex from './app/photos/PhotoIndex';
 import PhotoDetails from './app/photos/PhotoDetails';
 import UserIndex from './app/users/UserIndex';
 import UserDetails from './app/users/UserDetails';
+import UserPhotos from './app/users/UserPhotos';
 import NotFoundPage from './app/NotFoundPage';
 
 const routes = (
@@ -20,6 +21,7 @@ const routes = (
         <Route exact path="/photos/:id" component={PhotoDetails} />
         <Route exact path="/users" component={UserIndex}></Route>
         <Route exact path="/users/:username" component={UserDetails}></Route>
+        <Route exact path="/users/:username/photos" component={UserPhotos}></Route>
         <Route component={NotFoundPage} />
       </Switch>
     </App>
