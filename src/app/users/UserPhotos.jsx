@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { UNSPLASH_CLIENT_ID } from '../../constants';
+import { NavLink } from 'react-router-dom';
 
 class UserPhotos extends Component {
 	constructor(props) {
@@ -44,10 +45,12 @@ class UserPhotos extends Component {
 					{userPhotos &&
 						userPhotos.map(photo => {
 							return (
-								<div key={photo.id}>
-									<img className="" 
-											src={photo.urls.small} 
-											alt={`by ${photo.user.name}`} />
+								<div className="photo" key={photo.id}>
+									<NavLink to={`/photos/${photo.id}`}>
+										<img className="photo-img" 
+											   src={photo.urls.small} 
+											   alt={`by ${photo.user.name}`} />
+								  </NavLink>
 								</div>
 							)	
 					})}
