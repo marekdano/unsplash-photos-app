@@ -34,8 +34,6 @@ class UserPhotos extends Component {
 
 	render() {
 		const { userPhotos } = this.state;
-		
-		console.log("UserPhotos: ", userPhotos);
 
 		return (
 			<div>
@@ -58,6 +56,14 @@ class UserPhotos extends Component {
 			</div> 
 		) 
 	}
+}
+
+UserPhotos.propType = {
+  match: React.PropTypes.shape({
+    params: React.PropTypess.shape({
+      username: React.PropTypes.isRequired
+    })
+  })
 }
 
 export default UserPhotos;

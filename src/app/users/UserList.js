@@ -23,9 +23,15 @@ const UserList = (props) => {
 }
 
 UserList.propType = {
-  user: React.PropTypes.arrayOf(
+  users: React.PropTypes.arrayOf(
     React.PropTypes.shape({
-      username: React.PropTypes.string.isRequired
+      id: React.PropTypes.string.isRequired,
+      username: React.PropTypes.string.isRequired,
+      first_name: React.PropTypes.string.isRequired,
+      last_name: React.PropTypes.string.isRequired,
+      profile_image: React.PropTypes.shape({
+        small: React.PropTypes.string.isRequired
+      })
     })
   )
 }

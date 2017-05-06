@@ -26,13 +26,20 @@ const PhotoList = (props) => {
 }
 
 PhotoList.propType = {
-  photo: React.PropTypes.arrayOf(
+  photos: React.PropTypes.arrayOf(
     React.PropTypes.shape({
       user: React.PropTypes.shape({
         username: React.PropTypes.string.isRequired,
+        name: React.PropTypes.string.isRequired,
+        profile_image: React.PropTypes.shape({
+          thumb: React.PropTypes.string.isRequired,
+          small: React.PropTypes.string.isRequired,
+          regular: React.PropTypes.string.isRequired
+        })
       })
     })
   )
 }
+
 
 export default PhotoList;
