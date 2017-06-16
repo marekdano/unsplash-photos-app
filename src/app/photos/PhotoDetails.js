@@ -55,7 +55,7 @@ class PhotoDetails extends Component {
 
 PhotoDetails.propType = {
   match: React.PropTypes.shape({
-    params: React.PropTypess.shape({
+    params: React.PropTypes.shape({
       id: React.PropTypes.string.isRequired
     })
   })

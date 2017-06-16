@@ -71,7 +71,7 @@ class UserDetails extends Component {
 
 UserDetails.propType = {
   match: React.PropTypes.shape({
-    params: React.PropTypess.shape({
+    params: React.PropTypes.shape({
       username: React.PropTypes.isRequired
     })
   })
