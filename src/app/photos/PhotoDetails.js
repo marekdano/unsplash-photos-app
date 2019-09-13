@@ -1,5 +1,6 @@
 
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 import axios from 'axios';
 import { UNSPLASH_CLIENT_ID } from '../../constants';
 
@@ -54,9 +55,9 @@ class PhotoDetails extends Component {
 }
 
 PhotoDetails.propType = {
-  match: React.PropTypes.shape({
-    params: React.PropTypes.shape({
-      id: React.PropTypes.string.isRequired
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string.isRequired
     })
   })
 }

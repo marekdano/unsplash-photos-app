@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 import { NavLink } from 'react-router-dom'
-import './Photos.css';
+import './Photos.scss';
 
 const PhotoList = (props) => {
   return (
@@ -26,15 +27,15 @@ const PhotoList = (props) => {
 }
 
 PhotoList.propType = {
-  photos: React.PropTypes.arrayOf(
-    React.PropTypes.shape({
-      user: React.PropTypes.shape({
-        username: React.PropTypes.string.isRequired,
-        name: React.PropTypes.string.isRequired,
-        profile_image: React.PropTypes.shape({
-          thumb: React.PropTypes.string.isRequired,
-          small: React.PropTypes.string.isRequired,
-          regular: React.PropTypes.string.isRequired
+  photos: PropTypes.arrayOf(
+    PropTypes.shape({
+      user: PropTypes.shape({
+        username: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        profile_image: PropTypes.shape({
+          thumb: PropTypes.string.isRequired,
+          small: PropTypes.string.isRequired,
+          regular: PropTypes.string.isRequired
         })
       })
     })

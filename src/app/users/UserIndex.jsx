@@ -14,7 +14,7 @@ class UserIndex extends Component {
     }
   }
 
-	componentWillMount() {
+	componentDidMount() {
     this.getPhotos();
   }
 

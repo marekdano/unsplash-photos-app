@@ -1,5 +1,6 @@
 
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 import axios from 'axios';
 import { UNSPLASH_CLIENT_ID } from '../../constants';
 
@@ -70,9 +71,9 @@ class UserDetails extends Component {
 }
 
 UserDetails.propType = {
-  match: React.PropTypes.shape({
-    params: React.PropTypes.shape({
-      username: React.PropTypes.isRequired
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      username: PropTypes.isRequired
     })
   })
 }

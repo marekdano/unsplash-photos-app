@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-
 import PhotoList from './PhotoList';
 import fetchPhotos from '../services/photo-service';
-import './Photos.css';
+import './Photos.scss';
 
 class PhotoIndex extends Component {
   constructor(props) {

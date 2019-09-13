@@ -1,7 +1,8 @@
 
 import React from 'react';
+import PropTypes from 'prop-types'
 import { NavLink } from 'react-router-dom';
-import './Users.css';
+import './Users.scss';
 
 const UserList = (props) => {
   return (
@@ -23,14 +24,14 @@ const UserList = (props) => {
 }
 
 UserList.propType = {
-  users: React.PropTypes.arrayOf(
-    React.PropTypes.shape({
-      id: React.PropTypes.string.isRequired,
-      username: React.PropTypes.string.isRequired,
-      first_name: React.PropTypes.string.isRequired,
-      last_name: React.PropTypes.string.isRequired,
-      profile_image: React.PropTypes.shape({
-        small: React.PropTypes.string.isRequired
+  users: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      username: PropTypes.string.isRequired,
+      first_name: PropTypes.string.isRequired,
+      last_name: PropTypes.string.isRequired,
+      profile_image: PropTypes.shape({
+        small: PropTypes.string.isRequired
       })
     })
   )

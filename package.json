@@ -4,7 +4,6 @@
   "private": true,
   "homepage": "https://marekdano.github.io/unsplash-photos-app",
   "devDependencies": {
-    
     "gh-pages": "^1.0.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
@@ -14,8 +13,10 @@
     "axios": "^0.19.0",
     "bootstrap": "^3.3.7",
     "font-awesome": "^4.7.0",
+    "node-sass": "^4.12.0",
+    "prop-types": "^15.7.2",
     "react-bootstrap": "^0.30.8",
-    "react-router-dom": "^4.0.0"
+    "react-router-dom": "^5.0.1"
   },
   "scripts": {
     "start": "UNSPLASH_CLIENT_ID=2cc0b31b17eab9accb20578f38e0843e78553da9aee8727d5ae4e22bf55d5026 react-scripts start",

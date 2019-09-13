@@ -1,5 +1,6 @@
 
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 import axios from 'axios';
 import { UNSPLASH_CLIENT_ID } from '../../constants';
 import { NavLink } from 'react-router-dom';
@@ -38,7 +39,7 @@ class UserPhotos extends Component {
 		return (
 			<div>
 				<button className="btn btn-default" onClick={this.goBack}> 
-							<i className="fa fa-angle-left" aria-hidden="true"></i> Back</button>
+					<i className="fa fa-angle-left" aria-hidden="true"></i> Back</button>
 				<div className="user-photos-list">
 					{userPhotos &&
 						userPhotos.map(photo => {
@@ -59,9 +60,9 @@ class UserPhotos extends Component {
 }
 
 UserPhotos.propType = {
-  match: React.PropTypes.shape({
-    params: React.PropTypes.shape({
-      username: React.PropTypes.isRequired
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      username: PropTypes.isRequired
     })
   })
 }
