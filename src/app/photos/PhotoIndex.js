@@ -9,7 +9,8 @@ class PhotoIndex extends Component {
 
     this.state = {
       photos: [],
-      loading: true
+      loading: true,
+      error: null
     }
   }
 
@@ -29,6 +30,10 @@ class PhotoIndex extends Component {
           <span className="sr-only">Loading...</span>
         </div> 
       );
+    } else if (this.state.error) { 
+      return (
+        <div>{this.state.error.message}</div>
+      )
     } else {
       return (
         <div className="photos text-center">

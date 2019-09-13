@@ -10,7 +10,8 @@ class UserIndex extends Component {
     this.state = {
       photos: [],
 			users: [],
-      loading: true
+			loading: true,
+			error: null,
     }
   }
 
@@ -58,7 +59,11 @@ class UserIndex extends Component {
           <i className="fa fa-camera fa-spin fa-2x fa-fw"></i>
           <span className="sr-only">Loading...</span>
         </div> 
-      );
+			);
+		} else if (this.state.error) { 
+      return (
+        <div>{this.state.error.message}</div>
+      )
     } else {
       return (
         <div className="text-center">

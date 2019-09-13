@@ -12,10 +12,15 @@ export default function (self) {
 		.then(response => {
 			self.setState({ 
 				photos: response.data,
-				loading: false
+				loading: false,
+				error: null
 			});
 		})
 		.catch(error => {
-			console.warn(error)
+			self.setState({ 
+				photos: [],
+				loading: false,
+				error: error
+			});
 		});
 }
