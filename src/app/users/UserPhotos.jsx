@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import axios from 'axios';
 import { UNSPLASH_CLIENT_ID } from '../../constants';
 import { NavLink } from 'react-router-dom';
+import '../photos/Photos.scss';
 
 class UserPhotos extends Component {
 	constructor(props) {
@@ -40,11 +41,11 @@ class UserPhotos extends Component {
 			<div>
 				<button className="btn btn-default" onClick={this.goBack}> 
 					<i className="fa fa-angle-left" aria-hidden="true"></i> Back</button>
-				<div className="user-photos-list">
+				<div className="photo-list">
 					{userPhotos &&
 						userPhotos.map(photo => {
 							return (
-								<div className="photo" key={photo.id}>
+								<div className="photo-card" key={photo.id}>
 									<NavLink to={`/photos/${photo.id}`}>
 										<img className="photo-img" 
 											   src={photo.urls.small} 

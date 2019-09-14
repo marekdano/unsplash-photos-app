@@ -2,7 +2,7 @@
 import axios from 'axios';
 import { UNSPLASH_CLIENT_ID } from '../../constants';
 
-export default function (self) {
+export function getLastPublishedPhotos(self) {
 	axios.get('https://api.unsplash.com/photos', {
 			params: {
 				client_id: UNSPLASH_CLIENT_ID,

@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import fetchPhotos from '../services/photo-service';
+import { getLastPublishedPhotos } from '../services/photo-service';
 import UserList from './UserList';
 
 class UserIndex extends Component {
@@ -20,7 +20,7 @@ class UserIndex extends Component {
   }
 
 	getPhotos() {
-		fetchPhotos(this);
+		getLastPublishedPhotos(this);
 	}
 
 	getUsers() {
