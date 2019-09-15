@@ -6,25 +6,15 @@
 } 
 
 .photo-list {
-	// padding: 0;
-  // margin: 0;
-	// display: flex;
-	// flex-flow: row wrap;
-	// justify-content: space-around;
 	display: grid;
   gap: 40px 20px;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
 
 .photo-card {
-	// margin: 1rem;
-	// padding: 0 .7rem;
-
 	animation: show 0.5s forwards ease-in-out;
 
 	.photo-img {
-		// padding: .8rem;
-		// border: 1px solid white;
 		width: 100%;
     object-fit: cover;
     height: 300px;
