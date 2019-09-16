@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import PhotoList from './PhotoList';
 import axios from 'axios';
 import { UNSPLASH_CLIENT_ID } from '../../constants';
-import { getLastPublishedPhotos } from '../services/photo-service';
 import './Photos.scss';
 
 const PhotoIndex = () => {
@@ -11,49 +10,53 @@ const PhotoIndex = () => {
   const [totalPages, setTotalPages] = useState(null);
   const [searchResults, setSearchResults] = useState([]);
   const [nextPage, setNextPage] = useState(1);
-  
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     setSearchQuery(searchTerm.trim());
+    setNextPage(1)
   } 
 
-  useEffect(() => searchUnsplash(searchTerm),
-    [searchQuery]
-  );
-
-  const searchUnsplash = () => {
-    if (!searchTerm) return;
-
-    setLoading(true);
-
-    axios.get(`https://api.unsplash.com/search/photos`, {
-			params: {
-				query: searchTerm.trim(),
-				page: nextPage,
-				per_page: 28,
-				client_id: UNSPLASH_CLIENT_ID,
-			}
-		})
-		.then(response => {
-			if (response.data.total === 0) {
-				alert("No photos were found for your search query.")
-				return;
-			}
-
-			setSearchResults([...response.data.results]);
-      setTotalPages(response.data.total_pages);
-
-			// if (nextPage < totalPages) {
-			// 	setNextPage(nextPage => nextPage + 1);
-			// }
-		})
-	  .catch(() => alert("An error occured!"))
-    .finally(() => setLoading(false));
+  const handleLoadMore = () => {
+    if (nextPage <= totalPages) {
+			setNextPage(nextPage => nextPage + 1);
+		}
   }
+
+  useEffect(() => {
+    function searchUnsplash() {
+      if (!searchQuery) return;
+      setIsLoading(true);
+
+      axios.get(`https://api.unsplash.com/search/photos`, {
+        params: {
+          query: searchQuery,
+          page: nextPage,
+          per_page: 28,
+          client_id: UNSPLASH_CLIENT_ID,
+        }
+      })
+      .then(response => {
+        if (response.data.total === 0) {
+          alert("No photos were found for your search query.")
+          return;
+        }
+
+        if (nextPage === 1) {
+          setTotalPages(response.data.total_pages);
+          setSearchResults([...response.data.results]);
+        } else {
+          setSearchResults((searchResults) => [...searchResults, ...response.data.results]);
+        }
+      })
+      .catch(() => alert("An error occured!"))
+      .finally(() => setIsLoading(false));
+    }
+
+    searchUnsplash();
+  }, [searchQuery, nextPage]);
 
   return (
     <div className="photos text-center">
@@ -61,17 +64,14 @@ const PhotoIndex = () => {
       <form className="search-form" onSubmit={handleSubmit}>
         <input className="search-input" type="search" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} placeholder="Search Unsplash's library of over 1 million photos" />
       </form>
-      {loading 
-      ? 
-      <div className="icon-loading">
-        <i className="fa fa-camera fa-spin fa-2x fa-fw"></i>
-        <span className="sr-only">Loading...</span>
-      </div> 
-      : 
-        <PhotoList photos={searchResults} />
+      <PhotoList photos={searchResults} />
+      {isLoading && 
+        <div className="icon-loading">
+          <i className="fa fa-camera fa-spin fa-2x fa-fw"></i>
+          <span className="sr-only">Loading...</span>
+        </div> 
       }
-      {nextPage <= totalPages && 
-        <button>Load more</button>}
+      {nextPage < totalPages && <button className="btn__loading" onClick={handleLoadMore}>Load more</button>}
     </div>
   );
 }
