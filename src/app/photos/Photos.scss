@@ -49,6 +49,18 @@
 	margin-bottom: 50px;
 }
 
+.btn__loading {
+	border: 1px solid #3f3f3f;
+	padding: .7rem 1.5rem;
+	margin-top: 2rem; 
+	font-weight: 500;
+}
+
+.btn__loading:hover {
+	background: #3f3f3f;
+	color: white;
+}
+
 @keyframes show {
 	0% {
 		opacity: 0;
