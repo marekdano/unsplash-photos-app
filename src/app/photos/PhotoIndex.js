@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PhotoList from './PhotoList';
 import axios from 'axios';
 import { UNSPLASH_CLIENT_ID } from '../../constants';
+import LoadingIndicator from '../shared/LoadingIndicator';
 import './Photos.scss';
 
 const PhotoIndex = () => {
@@ -17,6 +18,7 @@ const PhotoIndex = () => {
 
     setSearchQuery(searchTerm.trim());
     setNextPage(1)
+    setSearchResults([]);
   } 
 
   const handleLoadMore = () => {
@@ -65,13 +67,9 @@ const PhotoIndex = () => {
         <input className="search-input" type="search" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} placeholder="Search Unsplash's library of over 1 million photos" />
       </form>
       <PhotoList photos={searchResults} />
-      {isLoading && 
-        <div className="icon-loading">
-          <i className="fa fa-camera fa-spin fa-2x fa-fw"></i>
-          <span className="sr-only">Loading...</span>
-        </div> 
+      {isLoading && <LoadingIndicator />
       }
-      {nextPage < totalPages && <button className="btn__loading" onClick={handleLoadMore}>Load more</button>}
+      {nextPage < totalPages && !isLoading && <button className="btn__loading" onClick={handleLoadMore}>View more</button>}
     </div>
   );
 }
